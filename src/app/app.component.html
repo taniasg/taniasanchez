@@ -1,31 +1,33 @@
-<div class="header">
-  <nav>
-    <div class="logo">
-      <img src="../assets/images/logos/taniasanchez.png" routerLink="/">
-    </div>
+<div [ngClass]="[screenSize]">
+  <div class="header">
+    <nav>
+      <div class="logo" >
+        <img src="../assets/images/logos/taniasanchez.png" class="pointer">
+      </div>
 
-    <div class="spacer"></div>
+      <div class="spacer"></div>
 
-    <div class="navbar">
-      <li>
-        <a routerLink="/">INICIO</a>
-      </li>
-      <li>
-        <a routerLink="/about">SOBRE MÍ</a>
-      </li>
-      <li>
-        <a routerLink="/skills">HABILIDADES</a>
-      </li>
-    </div>
-  </nav>
-</div>
+      <div class="navbar">
+        <li>
+          <a routerLink="/">INICIO</a>
+        </li>
+        <li>
+          <a routerLink="/about">SOBRE MÍ</a>
+        </li>
+        <li>
+          <a routerLink="/skills">HABILIDADES</a>
+        </li>
+      </div>
+    </nav>
+  </div>
 
-<div class="line"></div>
+  <div class="line"></div>
 
-<div class="content">
-  <router-outlet></router-outlet>
-</div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 
-<div class="footer">
-  <img src="../assets/images/footers/footerblack.jpg">
+  <div class="footer">
+    <img src="../assets/images/footers/footerblack.jpg">
+  </div>
 </div>
