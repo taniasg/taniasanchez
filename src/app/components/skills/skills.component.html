@@ -1,3 +1,31 @@
-<div [ngClass]="[screenSize]" class="skills" >
-    <img src="../../../assets/images/marco.png" class="marco">
+<div [ngClass]="[screenSize]">
+    <div class="skills">
+        <div class="container">
+            <div style="display: block;">
+                <div class="skill-wrap" style="display: flex;" *ngFor="let skill of skills; let i = index;">
+                    <ng-container *ngIf="skillSelected == skill">
+                        <div class="hand-display">
+                            <img [src]="skill.img" class="hand">
+                        </div>
+                        <div class="skill-container" style="display: block; margin: auto; margin-left: 50px;">
+                            <div class="skill" style="height: 160px;">
+                                <div class="label" style="font-family: SundayBest; font-size: 38px;">{{skill.label}}
+                                </div>
+                                <div class="description" style="font-size: 20px; font-family: CenturyGothic;">
+                                    {{skill.description}}</div>
+                            </div>
+                            <div class="navigate" style="padding-top: 25px; width: 100px;
+                            display: flex;
+                            justify-content: space-between;">
+                                <mat-icon aria-hidden="false" aria-label="Atrás" class="pointer"
+                                    (click)="previousSkill(i)">arrow_back</mat-icon>
+                                <mat-icon aria-hidden="false" aria-label="Siguiente" class="pointer"
+                                    (click)="nextSkill(i)">arrow_forward</mat-icon>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
