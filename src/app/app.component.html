@@ -1,33 +1,46 @@
-<div [ngClass]="[screenSize]">
+<div [ngClass]="[screenSize, uitheme]">
   <div class="header">
     <nav>
-      <div class="logo" >
-        <img src="../assets/images/logos/taniasanchez.png" class="pointer">
+      <div class="logo" *ngIf="screenSize != 'is-mobile'">
+        <img src="../assets/images/logos/taniasanchez.png" routerLink="/" class="pointer">
       </div>
 
-      <div class="spacer"></div>
-
+      <div class="spacer" *ngIf="screenSize != 'is-mobile'"></div>
       <div class="navbar">
-        <li>
-          <a routerLink="/">INICIO</a>
-        </li>
-        <li>
-          <a routerLink="/about">SOBRE MÍ</a>
-        </li>
-        <li>
-          <a routerLink="/skills">HABILIDADES</a>
-        </li>
+        <ng-container *ngFor="let option of menu">
+          <li (click)="onNavigate(option.route)">
+            <a class="option" [class.selected]="activeRoute == option.route" [routerLink]="option.route" [title]="option.name">
+              {{option.name | uppercase }}
+            </a>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="screenSize != 'is-mobile'">
+          <button mat-icon-button [matMenuTriggerFor]="theme" title="Tema" class="theme-button">
+            <mat-icon>color_lens</mat-icon>
+          </button>
+          <mat-menu #theme="matMenu">
+            <button mat-menu-item *ngFor="let theme of themes" (click)="_setTheme(theme.id)">
+              <mat-icon>
+                <div class="theme-option" [style.background-color]="theme.color"></div>
+              </mat-icon>
+              <span>{{theme.label}}</span>
+            </button>
+          </mat-menu>
+        </ng-container>
+
+
       </div>
     </nav>
   </div>
 
-  <div class="line"></div>
+  <div class="line" *ngIf="screenSize != 'is-mobile'"></div>
 
   <div class="content">
     <router-outlet></router-outlet>
   </div>
 
-  <div class="footer">
-    <img src="../assets/images/footers/footerblack.jpg">
+  <div class="footer" *ngIf="screenSize != 'is-mobile'">
+    <img [src]="'../assets/images/footers/footer-' + uitheme + '.png'">
   </div>
 </div>

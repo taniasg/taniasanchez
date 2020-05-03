@@ -1,0 +1,79 @@
+@import "./variables.scss";
+
+@mixin theme-button($color) {
+    color: $color;
+}
+
+@mixin line($color) {
+    position: relative;
+    top: 115px;
+    height: 1px;
+    background-image: linear-gradient(to right, white, $color, white);
+}
+
+.grey-theme {
+    .line {
+        @include line($color-grey);
+    }
+    .theme-button {
+        @include theme-button($color-grey);
+    }
+    .theme-option {
+        background-color: $color-grey;
+    }
+}
+.pink-theme {
+    .line {
+        @include line($color-pink);
+    }
+    .theme-button {
+        @include theme-button($color-pink);
+    }
+    .theme-option {
+        background-color: $color-pink;
+    }
+}
+.purple-theme {
+    .line {
+        @include line($color-purple);
+    }
+    .theme-button {
+        @include theme-button($color-purple);
+    }
+    .theme-option {
+        background-color: $color-purple;
+    }
+}
+.blue-theme {
+    .line {
+        @include line($color-blue);
+    }
+    .theme-button {
+        @include theme-button($color-blue);
+    }
+    .theme-option {
+        background-color: $color-blue;
+    }
+}
+.green-theme {
+    .line {
+        @include line($color-green);
+    }
+    .theme-button {
+        @include theme-button($color-green);
+    }
+    .theme-option {
+        background-color: $color-green!important;
+    }
+}
+.yellow-theme {
+    .line {
+        @include line($color-yellow);
+    }
+    .theme-button {
+        @include theme-button($color-yellow);
+    }
+    .theme-option {
+        background-color: $color-yellow;
+    }
+}
