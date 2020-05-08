@@ -4,7 +4,7 @@
     position: absolute;
     width: 100%;
     top: 17px;
-    font-family: CenturyGothic;
+    font-family: QuicksandLight;
     font-size: 14px;
     z-index: 999;
 
@@ -15,14 +15,14 @@
         min-height: 80px;
 
         .logo {
-            width: 280px;
+            width: 200px;
             height: inherit;
             display: flex;
             justify-content: center;
 
             > img {
-                width: 200px;
-                height: inherit;
+                // width: 200px;
+                height: 75px;
             }
         }
 
@@ -38,9 +38,11 @@
 
                 .option {
                     text-decoration: none;
-                    color: rgb(150, 147, 147);
+                    // color: rgb(150, 147, 147);
+                    color: #afafaf;
                     &.selected {
-                        color: black;
+                        color: #4c4c4c;
+                        font-weight: bold;
                     }
                 }
             }

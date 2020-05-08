@@ -1,29 +1,30 @@
-<div [ngClass]="[screenSize]">
-    <div class="skills">
-        <div class="container">
-            <div style="display: block;">
-                <div class="skill-wrap" style="display: flex;" *ngFor="let skill of skills; let i = index;">
-                    <ng-container *ngIf="skillSelected == skill">
-                        <div class="hand-display">
-                            <img [src]="skill.img" class="hand">
-                        </div>
-                        <div class="skill-container" style="display: block; margin: auto; margin-left: 50px;">
-                            <div class="skill" style="height: 160px;">
-                                <div class="label" style="font-family: SundayBest; font-size: 38px;">{{skill.label}}
-                                </div>
-                                <div class="description" style="font-size: 20px; font-family: CenturyGothic;">
-                                    {{skill.description}}</div>
+<div class="skills">
+    <div class="skills-container">
+        <div class="skill-wrapper">
+            <div #hand class="hand-display">
+                <img *ngFor="let skill of skills; let i = index;" [src]="skill.img"
+                    [ngClass]="['hand', 'hand-' + (i + 1)]">
+            </div>
+            <div class="skill-display">
+                <div #skill class="skill">
+                    <ng-container *ngFor="let skill of skills; let i = index;">
+                        <div [ngClass]="['skill-' + (i  + 1)]" [style.transition-duration]="'0.6s'">
+                            <div class="title">
+                                {{skill.title | uppercase }}
                             </div>
-                            <div class="navigate" style="padding-top: 25px; width: 100px;
-                            display: flex;
-                            justify-content: space-between;">
-                                <mat-icon aria-hidden="false" aria-label="Atrás" class="pointer"
-                                    (click)="previousSkill(i)">arrow_back</mat-icon>
-                                <mat-icon aria-hidden="false" aria-label="Siguiente" class="pointer"
-                                    (click)="nextSkill(i)">arrow_forward</mat-icon>
+                            <div class="info">
+                                {{skill.description}}
                             </div>
                         </div>
                     </ng-container>
+                </div>
+                <div class="nav">
+                    <div class="button pointer" (click)="previousSkill()">
+                        <img src="../../../assets/images/icons/svg/back.svg" alt="" class="icn">
+                    </div>
+                    <div class="button pointer" (click)="nextSkill()">
+                        <img src="../../../assets/images/icons/svg/next.svg" alt="" class="icn">
+                    </div>
                 </div>
             </div>
         </div>

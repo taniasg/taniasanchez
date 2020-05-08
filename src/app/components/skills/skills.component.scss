@@ -1,3 +1,5 @@
+@import "~src/variables.scss";
+
 .skills {
     width: 100%;
     height: 100%;
@@ -7,70 +9,142 @@
     display: flex;
     justify-content: center;
 
-    .container {
-        width: 780px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .skills-container {
+        width: 800px;
 
-        .hand-display {
-            width: 50%;
-            display: flex;
-            justify-content: center;
+        .skill-wrapper {
+            .hand-display {
+                position: relative;
+                float: left;
+
+                .hand {
+                    position: absolute;
+                    width: inherit;
+                    height: inherit;
+                }
+            }
+
+            .skill-display {
+                display: flex;
+                // align-items: center;
+                position: relative;
+                margin-left: 300px;
+                text-align: left;
+                overflow: hidden;
+                // height: 443px;
+                flex-direction: column;
+                justify-content: center;
+
+                .skill {
+                    transition: transform 0.5s;
+                    height: 180px;
+
+                    > [class*="skill-"] {
+                        transition-duration: 0.6s;
+                    }
+
+                    .title {
+                        // font-family: SundayBest;
+                        font-family: ChauPhilomeneOne;
+                        color: rgba(76, 76, 76);
+                        font-size: 48px;
+                    }
+
+                    .info {
+                        font-size: 20px;
+                        font-family: QuicksandLight;
+                        color: rgb(66, 64, 64);
+                    }
+                }
+
+                .nav {
+                    padding-top: 25px;
+                    width: 100px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .button {
+                        height: 38px;
+                        width: 38px;
+                        overflow: hidden;
+
+                        .icn:hover {
+                            transform: translateY(-38px);
+                        }
+                    }
+                }
+            }
         }
-
-        // .skill {
-        //     width: 50%;
-        // }
     }
 }
 
-.is-desktop {
+:host-context(.is-desktop) {
     .skills {
         min-height: 1000px;
 
         .hand-display {
-            .hand {
-                width: 235px;
-                height: 443px;
-            }
+            width: $desktop-skill-width;
+            height: $desktop-skill-height;
+        }
+
+        .skill-display {
+            height: $desktop-skill-height;
         }
     }
 }
 
-.is-tablet {
+:host-context(.is-tablet) {
     .skills {
         min-height: 700px;
 
         .hand-display {
-            .hand {
-                width: 235px;
-                height: 443px;
-            }
+            width: $tablet-skill-width;
+            height: $tablet-skill-height;
+        }
+
+        .skill-display {
+            height: $tablet-skill-height;
         }
     }
 }
 
-.is-mobile {
+:host-context(.is-mobile) {
     .skills {
         min-height: 250px;
 
-        .container {
-            flex-direction: column;
-            margin: 0;
+        .skill-wrapper {
+            display: block;
 
             .hand-display {
-                width: 100%;
-                .hand {
-                    height: 250px;
-                    margin: auto;
+                width: $mobile-skill-width;
+                height: $mobile-skill-height;
+                float: inherit;
+                margin: auto;
+            }
+
+            .skill-display {
+                margin-left: 0px;
+                text-align: center;
+
+                .skill {
+                    width: 96%;
+                    margin: 20px auto;
+                    height: 120px;
+
+                    .title {
+                        font-size: 40px;
+                    }
+
+                    .info {
+                        font-size: 16px;
+                    }
                 }
             }
 
-            .skill {
-                width: 100%;
+            .nav {
+                margin: auto;
             }
+
         }
     }
 }

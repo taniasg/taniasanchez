@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LayoutService } from 'src/app/services/layout/layout.service';
 
 @Component({
@@ -7,17 +7,20 @@ import { LayoutService } from 'src/app/services/layout/layout.service';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
-  screenSize: string = "";
-
   skills = [
-    { label: "Angular", description: "En los últimos años he desarrollado aplicaciones robustas, escalables y optimizadas para distintos proyectos utilizando Typescript, Angular Material, Chart.js, entre otros.", img: "../../../assets/images/hands/hand1.png" },
-    { label: "Javascript", description: "Desarrollo código para la optimización de procesos desde automatización de reportes hasta creación y consumo de servicios.", img: "../../../assets/images/hands/hand2.png" },
-    { label: "Node.js", description: "He trabajado con Node.js creando APIs REST. Algunas librerías que he utilizado incluyen npm, Express, Socket.io y MongoDB.", img: "../../../assets/images/hands/hand3.png" },
-    { label: "HTML/CSS", description: "Recientemente he trabajado en desarrollo web responsivo creando módulos CSS predominantemente en SASS. Mi objetivo es el rendimiento, simplicidad e integridad.", img: "../../../assets/images/hands/hand4.png" },
-    { label: "AWS", description: "Tengo conocimientos básicos acerca del manejo de herramientas y servicios de la nube de Amazon tales como Cognito, CloudWatch, DynamoDB, S3 y Lambda.", img: "../../../assets/images/hands/hand5.png" }
+    { title: "Angular", description: "En los últimos años he desarrollado aplicaciones robustas, escalables y optimizadas para distintos proyectos utilizando Typescript, Angular Material, Chart.js, entre otros.", img: "../../../assets/images/hands/hand1_ring.png" },
+    { title: "Javascript", description: "Desarrollo código para la optimización de procesos desde automatización de reportes hasta creación y consumo de servicios.", img: "../../../assets/images/hands/hand2_ring.png" },
+    { title: "Node.js", description: "He trabajado con Node.js creando APIs REST. Algunas librerías que he utilizado incluyen npm, Express, Socket.io y MongoDB.", img: "../../../assets/images/hands/hand3_ring.png" },
+    { title: "HTML/CSS", description: "Recientemente he trabajado en desarrollo web responsivo creando módulos CSS predominantemente en SASS. Mi objetivo es el rendimiento, simplicidad e integridad.", img: "../../../assets/images/hands/hand4_ring.png" },
+    { title: "AWS", description: "Tengo conocimientos básicos acerca del manejo de herramientas y servicios de la nube de Amazon tales como Cognito, CloudWatch, DynamoDB, S3 y Lambda.", img: "../../../assets/images/hands/hand5_ring.png" }
   ]
 
-  skillSelected: any = this.skills[0];
+  index = 1;
+
+  screenSize: string = "";
+
+  @ViewChild("hand", { static: false }) hand;
+  @ViewChild("skill", { static: false }) skill;
 
   constructor(private layoutService: LayoutService) {
     this.layoutService.onLayoutChanges().subscribe(response => {
@@ -25,27 +28,87 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  changeSkill(index: number) {
-    console.log(index)
-    if (index == this.skills.length - 1) this.skillSelected = this.skills[0];
-    else if (index == 0) this.skillSelected = this.skills[this.skills.length];
-    else this.skillSelected = this.skills[index];
-    console.log(this.skillSelected)
+  ngAfterViewInit() {
+    this.skills.forEach((skill, index) => {
+      if (index != 0) {
+        let hand = this.hand.nativeElement.querySelector(`.hand-${index + 1}`);
+        let skill = this.skill.nativeElement.querySelector(`.skill-${index + 1}`);
+
+        hand.style["opacity"] = 0;
+        skill.style["transform"] = "translateX(-500px)";
+        skill.style["display"] = "none";
+      }
+    });
   }
 
   previousSkill(index: number) {
-    if(index == 0) this.skillSelected = this.skills[this.skills.length - 1]
-    else {
-      console.log('IM HERE');
-      this.skillSelected = this.skills[index - 1]}
+    let actualHand = this.hand.nativeElement.querySelector(`.hand-${this.index}`);
+    let actualSkill = this.skill.nativeElement.querySelector(`.skill-${this.index}`);
+
+    let prevHand = this.index == 1 ?
+      this.hand.nativeElement.querySelector(`.hand-${this.skills.length}`) :
+      this.hand.nativeElement.querySelector(`.hand-${this.index - 1}`);
+    let prevSkill = this.index == 1 ?
+      this.skill.nativeElement.querySelector(`.skill-${this.skills.length}`) :
+      this.skill.nativeElement.querySelector(`.skill-${this.index - 1}`);
+
+    actualSkill.style["transform"] = this.screenSize == 'is-mobile' ? "translateX(500px)" : "translateX(-500px)";
+
+    setTimeout(function () {
+      actualSkill.style["display"] = "none";
+      prevSkill.style["display"] = "block";
+    }, 500);
+
+    setTimeout(() => {
+      // prevSkill.style["transition-duration"] = "0.6s"
+      prevSkill.style["transform"] = "translateX(0px)";
+    }, 200)
+
+
+    setTimeout(() => {
+      actualHand.style["transition-duration"] = "0.6s";
+      actualHand.style["opacity"] = 0;
+      prevHand.style["transition-duration"] = "0s";
+      prevHand.style["opacity"] = 1;
+    }, 300);
+
+    this.index = this.index == 1 ? this.skills.length : this.index - 1;
   }
 
-  nextSkill(index: number) {
-    if(index == this.skills.length - 1) this.skillSelected = this.skills[0]
-    else this.skillSelected = this.skills[index + 1]
+  nextSkill() {
+    let actualHand = this.hand.nativeElement.querySelector(`.hand-${this.index}`);
+    let actualSkill = this.skill.nativeElement.querySelector(`.skill-${this.index}`);
+
+    let nextHand = this.index == this.skills.length ?
+      this.hand.nativeElement.querySelector(`.hand-1`) :
+      this.hand.nativeElement.querySelector(`.hand-${this.index + 1}`);
+    let nextSkill = this.index == this.skills.length ?
+      this.skill.nativeElement.querySelector(`.skill-1`) :
+      this.skill.nativeElement.querySelector(`.skill-${this.index + 1}`);
+
+    actualSkill.style["transform"] = "translateX(-500px)";
+
+    setTimeout(function () {
+      actualSkill.style["display"] = "none";
+      nextSkill.style["display"] = "block";
+    }, 500);
+
+    setTimeout(() => {
+      // nextSkill.style["transition-duration"] = "0.6s"
+      nextSkill.style["transform"] = "translateX(0px)";
+    }, 200)
+
+
+    setTimeout(() => {
+      actualHand.style["transition-duration"] = "0.6s";
+      actualHand.style["opacity"] = 0;
+      nextHand.style["transition-duration"] = "0s";
+      nextHand.style["opacity"] = 1;
+    }, 300);
+
+    this.index = this.index == this.skills.length ? 1 : this.index + 1;
   }
 
 }
