@@ -36,20 +36,40 @@ body {
 }
 
 @font-face {
-    font-family: SundayBest;
-    src: url(assets/fonts/otf/SundayBest.otf);
+    font-family: ChauPhilomeneOne;
+    src: url(assets/fonts/ttf/ChauPhilomeneOne.ttf);
 }
 
 @font-face {
-    font-family: CenturyGothic;
-    src: url(assets/fonts/ttf/CenturyGothic.ttf);
+    font-family: QuicksandLight;
+    src: url(assets/fonts/ttf/Quicksand-Light.ttf);
 }
+
+@font-face {
+    font-family: QuicksandSemiBold;
+    src: url(assets/fonts/ttf/Quicksand-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: QuicksandBold;
+    src: url(assets/fonts/ttf/Quicksand-Bold.ttf);
+}
+
 
 body {
     margin: 0;
-    font-family: CenturyGothic;
+    font-family: QuicksandLight;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+.hide {
+    display: none!important;
+}
+
+.icn {
+    width: inherit;
+    transition: transform 0.2s;
 }

@@ -33,26 +33,15 @@
         background-color: $color-pink;
     }
 }
-.purple-theme {
+.orange-theme {
     .line {
-        @include line($color-purple);
+        @include line($color-orange);
     }
     .theme-button {
-        @include theme-button($color-purple);
+        @include theme-button($color-orange);
     }
     .theme-option {
-        background-color: $color-purple;
-    }
-}
-.blue-theme {
-    .line {
-        @include line($color-blue);
-    }
-    .theme-button {
-        @include theme-button($color-blue);
-    }
-    .theme-option {
-        background-color: $color-blue;
+        background-color: $color-orange;
     }
 }
 .green-theme {
