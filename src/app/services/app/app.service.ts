@@ -6,9 +6,9 @@ import { Subject, Subscription } from 'rxjs';
 })
 export class AppService {
 
-  _themeChanged: Subject<'grey-theme' | 'pink-theme' | 'purple-theme' | 'blue-theme' | 'green-theme' | 'yellow-theme' | string> = new Subject();
+  _themeChanged: Subject<'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme' | string> = new Subject();
 
-  uitheme: 'grey-theme' | 'pink-theme' | 'purple-theme' | 'blue-theme' | 'green-theme' | 'yellow-theme' | string;
+  uitheme: 'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme' | string;
 
   constructor() {
     this.setTheme();
@@ -18,7 +18,7 @@ export class AppService {
     return this._themeChanged.subscribe(fn);
   }
 
-  emitThemeChanged(theme: 'grey-theme' | 'pink-theme' | 'purple-theme' | 'blue-theme' | 'green-theme' | 'yellow-theme' | string) {
+  emitThemeChanged(theme: 'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme' | string) {
     this.uitheme = theme;
     this._themeChanged.next(theme);
   }
@@ -27,7 +27,7 @@ export class AppService {
     return this.uitheme || 'grey-theme';
   }
 
-  setTheme(theme?: 'grey-theme' | 'pink-theme' | 'purple-theme' | 'blue-theme' | 'green-theme' | 'yellow-theme') {
+  setTheme(theme?: 'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme') {
     if (theme) {
       if (this._isValidTheme(theme)) {
         this.uitheme = theme;
@@ -35,13 +35,13 @@ export class AppService {
       }
     }
     else {
-      let localTheme: 'grey-theme' | 'pink-theme' | 'purple-theme' | 'blue-theme' | 'green-theme' | 'yellow-theme' | string = (localStorage.getItem('theme'));
+      let localTheme: 'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme' | string = (localStorage.getItem('theme'));
       if (this._isValidTheme(localTheme)) this.uitheme = localTheme;
     }
     this.emitThemeChanged(this.uitheme);
   }
 
   private _isValidTheme(theme) {
-    return ['grey-theme', 'pink-theme', 'purple-theme', 'blue-theme', 'green-theme', 'yellow-theme'].indexOf(theme) >= 0;
+    return ['grey-theme', 'pink-theme', 'orange-theme', 'green-theme', 'yellow-theme'].indexOf(theme) >= 0;
   }
 }
