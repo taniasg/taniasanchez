@@ -1,0 +1,112 @@
+@import "~src/variables.scss";
+
+.about {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    flex-direction: column;
+
+    .picture {
+        width: 200px;
+        height: 200px;
+        margin: 40px auto;
+        background-image: url("../../../assets/images/me-original.jpeg");
+        // background-image: url("../../../assets/images/me-edited.jpeg");
+        // background-image: url("../../../assets/images/me-bw2.jpg");
+        background-size: 200px;
+        border-radius: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .biography {
+        display: flex;
+
+        .quotes {
+            display: flex;
+            align-items: center;
+            width: 60px;
+            margin: 0 20px;
+        }
+
+        .text {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+
+            span {
+                font-weight: bold;
+                &.swimming {
+                    color: $color-blue;
+                }
+
+                &.music {
+                    color: $color-pink;
+                }
+                &.cooking {
+                    color: $color-orange;
+                }
+            }
+        }
+    }
+
+    .competences-container {
+        margin-top: 40px;
+        width: 500px;
+        display: flex;
+        justify-content: space-evenly;
+
+        .btn-about {
+            color: #424040 !important;
+        }
+    }
+}
+
+:host-context(.is-desktop) {
+    .about {
+        min-height: 900px;
+    }
+}
+
+:host-context(.is-tablet) {
+    .about {
+        min-height: 700px;
+    }
+}
+
+:host-context(.is-mobile) {
+    .about {
+        min-width: 250px;
+    }
+}
+
+.picture:hover {
+    // background-image: url("../../../assets/images/me-edited.jpeg");
+    border-radius: 50px;
+    // border: 2px solid red;
+}
+
+.competences-container > button {
+    &.btn-how_to_reg:hover {
+        color: $color-pink !important;
+    }
+
+    &.btn-search:hover {
+        color: $color-blue !important;
+    }
+    &.btn-group:hover {
+        color: $color-purple !important;
+    }
+    &.btn-emoji_objects:hover {
+        color: $color-yellow !important;
+    }
+    &.btn-autorenew:hover {
+        color: $color-green-lighter !important;
+    }
+    &.btn-forum:hover {
+        color: $color-orange !important;
+    }
+}

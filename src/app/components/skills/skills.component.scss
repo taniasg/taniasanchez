@@ -46,14 +46,14 @@
                     .title {
                         // font-family: SundayBest;
                         font-family: ChauPhilomeneOne;
-                        color: rgba(76, 76, 76);
+                        color: $color-grey;
                         font-size: 48px;
                     }
 
                     .info {
                         font-size: 20px;
                         font-family: QuicksandLight;
-                        color: rgb(66, 64, 64);
+                        color: $color-grey-darker;
                     }
                 }
 
@@ -80,15 +80,19 @@
 
 :host-context(.is-desktop) {
     .skills {
-        min-height: 1000px;
+        min-height: 900px;
 
-        .hand-display {
-            width: $desktop-skill-width;
-            height: $desktop-skill-height;
-        }
+        .skills-container {
+            width: 900px;
+            
+            .hand-display {
+                width: $desktop-skill-width;
+                height: $desktop-skill-height;
+            }
 
-        .skill-display {
-            height: $desktop-skill-height;
+            .skill-display {
+                height: $desktop-skill-height;
+            }
         }
     }
 }
@@ -144,7 +148,6 @@
             .nav {
                 margin: auto;
             }
-
         }
     }
 }
