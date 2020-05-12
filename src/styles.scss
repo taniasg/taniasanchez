@@ -1,6 +1,9 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import "~@angular/material/theming";
+@import "~src/themes.scss";
+@import "~src/fonts.scss";
+
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -34,27 +37,6 @@ body {
 .spacer {
     flex: 1 1 auto;
 }
-
-@font-face {
-    font-family: ChauPhilomeneOne;
-    src: url(assets/fonts/ttf/ChauPhilomeneOne.ttf);
-}
-
-@font-face {
-    font-family: QuicksandLight;
-    src: url(assets/fonts/ttf/Quicksand-Light.ttf);
-}
-
-@font-face {
-    font-family: QuicksandSemiBold;
-    src: url(assets/fonts/ttf/Quicksand-SemiBold.ttf);
-}
-
-@font-face {
-    font-family: QuicksandBold;
-    src: url(assets/fonts/ttf/Quicksand-Bold.ttf);
-}
-
 
 body {
     margin: 0;

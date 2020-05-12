@@ -1,5 +1,3 @@
-@import "~src/themes.scss";
-
 .header {
     position: absolute;
     width: 100%;
@@ -38,11 +36,10 @@
 
                 .option {
                     text-decoration: none;
-                    // color: rgb(150, 147, 147);
                     color: #afafaf;
                     &.selected {
                         color: #4c4c4c;
-                        font-weight: bold;
+                        font-family: QuicksandSemiBold;
                     }
                 }
             }
