@@ -6,16 +6,16 @@
         </div>
         <div class="text">
             <p>
-                Mi nombre es Tania Gisela Sánchez González y tengo 25 años.
+                Me llamo Tania Gisela Sánchez González y tengo 25 años.
             </p>
             <p>
                 Soy Ingeniera en Computación egresada de la FES
                 Aragón de la Universidad Nacional Autónoma de México.
-                Mi pasión por la programación inició a partir del
-                bachillerato del cual obtuve el título de Técnico en Informática.
+                Mi pasión por la programación comenzó en el 
+                bachillerato gracias a lo cual obtuve el título de Técnico en Informática.
             </p>
             <p>
-                Algunas de las cosas que me gustan hacer es <span class="swimming">nadar</span>,
+                Algunas de las cosas que me gusta hacer es <span class="swimming">nadar</span>,
                 <span class="music">escuchar música</span> y
                 <span class="cooking">cocinar</span>.
             </p>
@@ -28,7 +28,7 @@
     <div class="competences-container">
         <ng-container *ngFor="let competence of competences">
             <button mat-icon-button [ngClass]="['btn-' + competence.icon]" [matTooltip]="competence.title"
-                [matTooltipPosition]="'below'" (click)="openCompetenceDialog(competence.title, competence.description)">
+                [matTooltipPosition]="'below'" (click)="openCompetenceDialog(competence)">
                 <mat-icon>{{competence.icon}}</mat-icon>
             </button>
         </ng-container>

@@ -1,9 +1,13 @@
+@import "~src/variables.scss";
+
 .mat-dialog-title {
     font-family: ChauPhilomeneOne;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    color: #4c4c4c;
+    text-align: center;
 
     .mat-icon-button.close {
         display: flex;
@@ -15,4 +19,20 @@
 
 .mat-dialog-content {
     text-align: center;
+    color: $color-grey-darker;
+    font-size: 15px;
+
+    .mat-icon {
+        width: 100%;
+        height: auto;
+        font-size: 100px;
+        color: #4c4c4c;;
+    }
+}
+
+.mat-dialog-actions {
+    button {
+        margin: 0 auto;
+        font-family: QuicksandSemiBold;
+    }
 }

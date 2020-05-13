@@ -14,12 +14,12 @@
         width: 200px;
         height: 200px;
         margin: 40px auto;
-        background-image: url("../../../assets/images/me-original.jpeg");
+        background-image: url("../../../assets/images/taniasanchez.jpg");
         // background-image: url("../../../assets/images/me-edited.jpeg");
         // background-image: url("../../../assets/images/me-bw2.jpg");
         background-size: 200px;
         border-radius: 100%;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s;
     }
 
     .biography {
@@ -36,6 +36,7 @@
             width: 600px;
             margin: 0 auto;
             text-align: center;
+            color: $color-grey-darker;
 
             span {
                 font-weight: bold;
@@ -47,7 +48,7 @@
                     color: $color-pink;
                 }
                 &.cooking {
-                    color: $color-orange;
+                    color: $color-green-lighter;
                 }
             }
         }
@@ -59,8 +60,8 @@
         display: flex;
         justify-content: space-evenly;
 
-        .btn-about {
-            color: #424040 !important;
+        button {
+            color: #4c4c4c !important;
         }
     }
 }
@@ -80,12 +81,67 @@
 :host-context(.is-mobile) {
     .about {
         min-width: 250px;
+
+        .picture {
+            width: 150px;
+            height: 150px;
+            background-size: 150px;
+        }
+
+        .biography {
+            display: block;
+
+            .quotes {
+                width: 40px;
+                margin: 0 auto;
+            }
+
+            .text {
+                width: 85%;
+                font-size: 14px;
+
+                span {
+                    font-weight: normal;
+                    color: $color-grey-darker;
+                }
+            }
+        }
+
+        .competences-container {
+            width: 85%;
+
+            > button {
+                &.btn-how_to_reg {
+                    color: $color-pink !important;
+                }
+
+                &.btn-search {
+                    color: $color-blue !important;
+                }
+                &.btn-group {
+                    color: $color-purple !important;
+                }
+                &.btn-emoji_objects {
+                    color: $color-yellow !important;
+                }
+                &.btn-autorenew {
+                    color: $color-green-lighter !important;
+                }
+                &.btn-forum {
+                    color: $color-orange !important;
+                }
+            }
+        }
     }
 }
 
 .picture:hover {
-    // background-image: url("../../../assets/images/me-edited.jpeg");
-    border-radius: 50px;
+    // background-image: url("../../../assets/images/tania.jpeg")!important;
+    border-radius: 25px !important;
+    // width: 150px !important;
+    // height: 200px !important;
+    // background-size: 75px !important;
+    // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     // border: 2px solid red;
 }
 

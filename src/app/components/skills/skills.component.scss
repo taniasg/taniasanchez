@@ -84,7 +84,7 @@
 
         .skills-container {
             width: 900px;
-            
+
             .hand-display {
                 width: $desktop-skill-width;
                 height: $desktop-skill-height;
@@ -133,7 +133,9 @@
                 .skill {
                     width: 96%;
                     margin: 20px auto;
-                    height: 120px;
+                    height: 160px;
+                    display: flex;
+                    align-items: center;
 
                     .title {
                         font-size: 40px;
@@ -143,11 +145,14 @@
                         font-size: 16px;
                     }
                 }
+
+                .nav {
+                    margin: auto;
+                    padding-top: 0;
+                }
             }
 
-            .nav {
-                margin: auto;
-            }
+           
         }
     }
 }

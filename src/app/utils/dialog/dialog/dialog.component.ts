@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 
 @Component({
   selector: 'app-dialog',
@@ -7,8 +8,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+  screenSize: string = "";
 
-  constructor(public dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(public dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: CompetenceData, private layoutService: LayoutService) {
+    this.layoutService.onLayoutChanges().subscribe(response => {
+      this.screenSize = response;
+    });
+  }
 
   ngOnInit() { }
 
@@ -18,7 +24,7 @@ export class DialogComponent implements OnInit {
 
 }
 
-export interface DialogData {
+export interface CompetenceData {
   title: string;
   description: string;
 }

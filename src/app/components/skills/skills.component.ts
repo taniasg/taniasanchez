@@ -9,7 +9,7 @@ import { LayoutService } from 'src/app/services/layout/layout.service';
 export class SkillsComponent implements OnInit {
   skills = [
     { title: "Angular", description: "En los últimos años he desarrollado aplicaciones robustas, escalables y optimizadas para distintos proyectos utilizando Typescript, Angular Material, Chart.js, entre otros.", img: "../../../assets/images/hands/hand1_ring.png" },
-    { title: "Javascript", description: "Soy capaz de construir aplicaciones de principio a fin empleando frameworks, librerías y herramientas. También desarrollo código para la optimización de procesos desde automatización de reportes hasta creación y consumo de servicios.", img: "../../../assets/images/hands/hand2_ring.png" },
+    { title: "Javascript", description: "Soy capaz de construir aplicaciones de principio a fin empleando frameworks, librerías y herramientas trabajando en front-end y back-end.", img: "../../../assets/images/hands/hand2_ring.png" },
     { title: "Node.js", description: "He trabajado con Node.js creando APIs REST. Algunas librerías que he utilizado incluyen npm, Express, Socket.io y MongoDB.", img: "../../../assets/images/hands/hand3_ring.png" },
     { title: "HTML/CSS", description: "Recientemente he trabajado en desarrollo web responsivo creando módulos CSS predominantemente en SASS. Mi objetivo es el rendimiento, simplicidad e integridad.", img: "../../../assets/images/hands/hand4_ring.png" },
     { title: "AWS", description: "Tengo conocimientos básicos acerca del manejo de herramientas y servicios de la nube de Amazon tales como Cognito, CloudWatch, DynamoDB, S3 y Lambda.", img: "../../../assets/images/hands/hand5_ring.png" }
@@ -22,11 +22,7 @@ export class SkillsComponent implements OnInit {
   @ViewChild("hand", { static: false }) hand;
   @ViewChild("skill", { static: false }) skill;
 
-  constructor(private layoutService: LayoutService) {
-    this.layoutService.onLayoutChanges().subscribe(response => {
-      this.screenSize = response;
-    });
-  }
+  constructor() {  }
 
   ngOnInit() { }
 
@@ -56,7 +52,7 @@ export class SkillsComponent implements OnInit {
 
     actualSkill.style["transform"] = this.screenSize == 'is-mobile' ? "translateX(500px)" : "translateX(-600px)";
 
-    this.animateSkill(actualSkill, actualHand, prevSkill, prevHand);
+    this._animateSkill(actualSkill, actualHand, prevSkill, prevHand);
 
     this.index = this.index == 1 ? this.skills.length : this.index - 1;
   }
@@ -74,12 +70,12 @@ export class SkillsComponent implements OnInit {
 
     actualSkill.style["transform"] = "translateX(-600px)";
 
-    this.animateSkill(actualSkill, actualHand, nextSkill, nextHand);
+    this._animateSkill(actualSkill, actualHand, nextSkill, nextHand);
 
     this.index = this.index == this.skills.length ? 1 : this.index + 1;
   }
 
-  animateSkill(skillOne: HTMLElement, handOne: HTMLElement, skillTwo: HTMLElement, handTwo: HTMLElement) {
+  private _animateSkill(skillOne: HTMLElement, handOne: HTMLElement, skillTwo: HTMLElement, handTwo: HTMLElement) {
     setTimeout(function () {
       skillOne.style["display"] = "none";
       skillTwo.style["display"] = "block";

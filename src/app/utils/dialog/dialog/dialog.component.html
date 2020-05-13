@@ -1,14 +1,12 @@
-<h1 mat-dialog-title>{{data.title}}
-    <button mat-icon-button class="close" (click)="close()">
+<h1 mat-dialog-title>{{data.title | uppercase }}
+    <button mat-icon-button class="close" (click)="close()" *ngIf="screenSize != 'is-mobile'">
         <mat-icon>close</mat-icon>
     </button>
 </h1>
 <div mat-dialog-content>
-    {{data.description}}
+    <mat-icon>{{ data.icon }}</mat-icon>
+    <p>{{ data.description }}</p>
 </div>
-<!-- <div mat-dialog-actions>
-    <button mat-icon-button (click)="close()">
-    <mat-icon>cancel</mat-icon>
-</button> -->
-    <!-- <button mat-button (click)="close()">Cerrar</button> -->
-<!-- </div> -->
+<div mat-dialog-actions *ngIf="screenSize == 'is-mobile'" style="text-align: center;">
+    <button mat-button (click)="close()">Cerrar</button>
+</div>
