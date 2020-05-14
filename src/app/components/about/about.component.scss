@@ -22,6 +22,16 @@
         transition: all 0.3s;
     }
 
+    .picture:hover {
+        // background-image: url("../../../assets/images/tania.jpeg")!important;
+        border-radius: 25px !important;
+        // width: 150px !important;
+        // height: 200px !important;
+        // background-size: 75px !important;
+        // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        // border: 2px solid red;
+    }
+
     .biography {
         display: flex;
 
@@ -62,6 +72,26 @@
 
         button {
             color: #4c4c4c !important;
+
+            &.btn-how_to_reg:hover {
+                color: $color-pink !important;
+            }
+        
+            &.btn-search:hover {
+                color: $color-blue !important;
+            }
+            &.btn-group:hover {
+                color: $color-purple !important;
+            }
+            &.btn-emoji_objects:hover {
+                color: $color-yellow !important;
+            }
+            &.btn-autorenew:hover {
+                color: $color-green-lighter !important;
+            }
+            &.btn-forum:hover {
+                color: $color-orange !important;
+            }
         }
     }
 }
@@ -163,37 +193,5 @@
                 }
             }
         }
-    }
-}
-
-.picture:hover {
-    // background-image: url("../../../assets/images/tania.jpeg")!important;
-    border-radius: 25px !important;
-    // width: 150px !important;
-    // height: 200px !important;
-    // background-size: 75px !important;
-    // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    // border: 2px solid red;
-}
-
-.competences-container > button {
-    &.btn-how_to_reg:hover {
-        color: $color-pink !important;
-    }
-
-    &.btn-search:hover {
-        color: $color-blue !important;
-    }
-    &.btn-group:hover {
-        color: $color-purple !important;
-    }
-    &.btn-emoji_objects:hover {
-        color: $color-yellow !important;
-    }
-    &.btn-autorenew:hover {
-        color: $color-green-lighter !important;
-    }
-    &.btn-forum:hover {
-        color: $color-orange !important;
     }
 }

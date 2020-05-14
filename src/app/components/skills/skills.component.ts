@@ -22,7 +22,11 @@ export class SkillsComponent implements OnInit {
   @ViewChild("hand", { static: false }) hand;
   @ViewChild("skill", { static: false }) skill;
 
-  constructor() {  }
+  constructor(private layoutService: LayoutService) {
+    this.layoutService.onLayoutChanges().subscribe(response => {
+      this.screenSize = response;
+    });
+  }
 
   ngOnInit() { }
 
