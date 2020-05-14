@@ -20,7 +20,7 @@
             <mat-icon>color_lens</mat-icon>
           </button>
           <mat-menu #theme="matMenu">
-            <button mat-menu-item *ngFor="let theme of themes" (click)="_setTheme(theme.id)">
+            <button mat-menu-item *ngFor="let theme of themes" (click)="setTheme(theme.id)">
               <mat-icon>
                 <div class="theme-option" [style.background-color]="theme.color"></div>
               </mat-icon>

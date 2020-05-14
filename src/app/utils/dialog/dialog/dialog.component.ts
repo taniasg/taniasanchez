@@ -27,4 +27,5 @@ export class DialogComponent implements OnInit {
 export interface CompetenceData {
   title: string;
   description: string;
+  icon: string;
 }

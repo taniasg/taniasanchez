@@ -39,7 +39,7 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-  previousSkill(index: number) {
+  previousSkill() {
     let actualHand = this.hand.nativeElement.querySelector(`.hand-${this.index}`);
     let actualSkill = this.skill.nativeElement.querySelector(`.skill-${this.index}`);
 

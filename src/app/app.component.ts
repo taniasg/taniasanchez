@@ -11,7 +11,7 @@ import { AppService } from './services/app/app.service';
 export class AppComponent {
   title = 'Tania Sanchez';
   uitheme: string = 'grey-theme';
-  
+
   activeRoute: string = "";
   screenSize: string = "";
 
@@ -40,14 +40,31 @@ export class AppComponent {
     });
     this.appService.onThemeChanged(theme => (this.uitheme = theme));
     this.uitheme = this.appService.getCurrentTheme();
+    this._log();
   }
 
   onNavigate(url: string) {
     this.activeRoute = url;
   }
 
-  private _setTheme(theme: any) {
+  setTheme(theme: any) {
     this.appService.setTheme(theme);
+  }
+
+  private _log() {
+    console.log(`
+@@@@@@@@@@@@@@@@     @@@@@@@@@@
+@@@   @@@@   @@@   @@@@@@@@@@@@@@
+@     @@@@     @   @@@@         @
+      @@@@         @@@
+      @@@@           @@@@@
+      @@@@               @@@@@
+      @@@@         @        @@@@@
+      @@@@         @@@@@@@@@@@@@@
+    @@@@@@@@         @@@@@@@@@@
+  `);
+    console.log("LinkedIn: https://www.linkedin.com/in/taniasanchezgo/")
+    console.log("Github: https://github.com/taniasg")
   }
 
 }

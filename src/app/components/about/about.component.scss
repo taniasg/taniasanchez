@@ -69,23 +69,54 @@
 :host-context(.is-desktop) {
     .about {
         min-height: 900px;
+
+        .picture {
+            width: 250px;
+            height: 250px;
+            min-height: 250px;
+            background-size: 250px;
+        }
+
+        .biography {
+            .text {
+                width: 900px;
+                font-size: 20px;
+            }
+
+            .quotes {
+                width: 70px;
+                margin: 0 80px;
+            }
+        }
+
+        .competences-container {
+            width: 650px;
+        }
     }
 }
 
 :host-context(.is-tablet) {
     .about {
         min-height: 700px;
+
+        .picture {
+            width: 180px;
+            height: 180px;
+            min-height: 180px;
+            background-size: 180px;
+        }
     }
 }
 
 :host-context(.is-mobile) {
     .about {
-        min-width: 250px;
+        min-height: 600px;
 
         .picture {
             width: 150px;
             height: 150px;
             background-size: 150px;
+            min-height: 150px;
         }
 
         .biography {
