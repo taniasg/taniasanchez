@@ -140,7 +140,7 @@
 
 :host-context(.is-mobile) {
     .about {
-        min-height: 600px;
+        min-height: 620px;
 
         .picture {
             width: 150px;
@@ -150,11 +150,16 @@
         }
 
         .biography {
-            display: block;
+            display: block!important;
 
             .quotes {
-                width: 40px;
-                margin: 0 auto;
+                text-align: center;
+                width: 100%;
+                margin: 0;
+
+                img {
+                    width: 30px;
+                }
             }
 
             .text {
