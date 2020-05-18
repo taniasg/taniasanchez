@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './utils/dialog/dialog/dialog.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DialogComponent } from './utils/dialog/dialog/dialog.component';
     MatMenuModule,
     MatButtonModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule
   ],
   entryComponents: [
     DialogComponent

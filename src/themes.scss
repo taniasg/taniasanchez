@@ -4,6 +4,11 @@
     color: $color;
 }
 
+@mixin menu-button($color) {
+    color: $color;
+    margin: 15px;
+}
+
 @mixin line($color) {
     position: relative;
     top: 115px;
@@ -11,58 +16,33 @@
     background-image: linear-gradient(to right, white, $color, white);
 }
 
-.grey-theme {
+.light-theme {
     .line {
-        @include line($color-grey);
+        @include line($light-theme-grey-darker);
     }
-    .theme-button {
-        @include theme-button($color-grey);
-    }
-    .theme-option {
-        background-color: $color-grey;
-    }
-}
-.pink-theme {
-    .line {
-        @include line($color-pink);
-    }
-    .theme-button {
-        @include theme-button($color-pink);
-    }
-    .theme-option {
-        background-color: $color-pink;
-    }
-}
-.orange-theme {
-    .line {
-        @include line($color-orange);
-    }
-    .theme-button {
-        @include theme-button($color-orange);
-    }
-    .theme-option {
-        background-color: $color-orange;
-    }
-}
-.green-theme {
-    .line {
-        @include line($color-green);
-    }
-    .theme-button {
-        @include theme-button($color-green);
-    }
-    .theme-option {
-        background-color: $color-green!important;
-    }
-}
-.yellow-theme {
-    .line {
-        @include line($color-yellow);
-    }
+
     .theme-button {
         @include theme-button($color-yellow);
     }
-    .theme-option {
-        background-color: $color-yellow;
+
+    .menu-button {
+        @include menu-button($light-theme-grey-darker);
+    }
+
+    mat-sidenav-content {
+        background: white;
+    }
+}
+.dark-theme {
+    .theme-button {
+        @include theme-button($color-yellow);   
+    }
+
+    .menu-button {
+        @include menu-button($dark-theme-grey-lighter);
+    }
+
+    mat-sidenav-content {
+        background: $dark-theme-background;
     }
 }

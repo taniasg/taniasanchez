@@ -6,9 +6,9 @@ import { Subject, Subscription } from 'rxjs';
 })
 export class AppService {
 
-  _themeChanged: Subject<'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme' | string> = new Subject();
+  _themeChanged: Subject<'light-theme' | 'dark-theme' | string> = new Subject();
 
-  uitheme: 'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme' | string;
+  uitheme: 'light-theme' | 'dark-theme' | string;
 
   constructor() {
     this.setTheme();
@@ -18,16 +18,16 @@ export class AppService {
     return this._themeChanged.subscribe(fn);
   }
 
-  emitThemeChanged(theme: 'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme' | string) {
+  emitThemeChanged(theme: 'light-theme' | 'dark-theme' | string) {
     this.uitheme = theme;
     this._themeChanged.next(theme);
   }
 
   getCurrentTheme() {
-    return this.uitheme || 'grey-theme';
+    return this.uitheme || 'light-theme';
   }
 
-  setTheme(theme?: 'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme') {
+  setTheme(theme?: 'light-theme' | 'dark-theme' | string) {
     if (theme) {
       if (this._isValidTheme(theme)) {
         this.uitheme = theme;
@@ -35,13 +35,13 @@ export class AppService {
       }
     }
     else {
-      let localTheme: 'grey-theme' | 'pink-theme' | 'orange-theme' | 'green-theme' | 'yellow-theme' | string = (localStorage.getItem('theme'));
+      let localTheme: 'light-theme' | 'dark-theme' | string = (localStorage.getItem('theme'));
       if (this._isValidTheme(localTheme)) this.uitheme = localTheme;
     }
     this.emitThemeChanged(this.uitheme);
   }
 
   private _isValidTheme(theme) {
-    return ['grey-theme', 'pink-theme', 'orange-theme', 'green-theme', 'yellow-theme'].indexOf(theme) >= 0;
+    return ['light-theme', 'dark-theme'].indexOf(theme) >= 0;
   }
 }

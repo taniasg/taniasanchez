@@ -46,14 +46,12 @@
                     .title {
                         // font-family: SundayBest;
                         font-family: ChauPhilomeneOne;
-                        color: $color-grey;
                         font-size: 48px;
                     }
 
                     .info {
                         font-size: 20px;
                         font-family: QuicksandLight;
-                        color: $color-grey-darker;
                     }
                 }
 
@@ -78,6 +76,7 @@
     }
 }
 
+// SCREEN SIZE
 :host-context(.is-desktop) {
     .skills {
         min-height: 900px;
@@ -114,7 +113,7 @@
 
 :host-context(.is-mobile) {
     .skills {
-        min-height: 600px;
+        min-height: 650px;
 
         .skill-wrapper {
             display: block;
@@ -154,5 +153,24 @@
 
            
         }
+    }
+}
+
+// THEMES
+:host-context(.light-theme) {
+    .title {
+        color: $light-theme-grey-lighter;
+    }
+    .info {
+        color: $light-theme-grey-darker;
+    }
+}
+
+:host-context(.dark-theme) {
+    .title {
+        color: $dark-theme-grey-darker;
+    }
+    .info {
+        color: $dark-theme-grey-lighter;
     }
 }

@@ -48,10 +48,14 @@ body {
 }
 
 .hide {
-    display: none!important;
+    display: none !important;
 }
 
 .icn {
     width: inherit;
     transition: transform 0.2s;
+}
+
+.mat-dialog-container {
+    background: $light-theme-grey-lighter !important;
 }

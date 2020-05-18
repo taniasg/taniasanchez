@@ -15,21 +15,13 @@
         height: 200px;
         margin: 40px auto;
         background-image: url("../../../assets/images/taniasanchez.jpg");
-        // background-image: url("../../../assets/images/me-edited.jpeg");
-        // background-image: url("../../../assets/images/me-bw2.jpg");
         background-size: 200px;
         border-radius: 100%;
         transition: all 0.3s;
     }
 
     .picture:hover {
-        // background-image: url("../../../assets/images/tania.jpeg")!important;
         border-radius: 25px !important;
-        // width: 150px !important;
-        // height: 200px !important;
-        // background-size: 75px !important;
-        // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        // border: 2px solid red;
     }
 
     .biography {
@@ -40,13 +32,17 @@
             align-items: center;
             width: 60px;
             margin: 0 20px;
+             
+            img {
+                width: inherit;
+            }
         }
 
         .text {
             width: 600px;
             margin: 0 auto;
             text-align: center;
-            color: $color-grey-darker;
+            color: $light-theme-grey-darker;
 
             span {
                 font-weight: bold;
@@ -71,8 +67,6 @@
         justify-content: space-evenly;
 
         button {
-            color: #4c4c4c !important;
-
             &.btn-how_to_reg:hover {
                 color: $color-pink !important;
             }
@@ -101,10 +95,10 @@
         min-height: 900px;
 
         .picture {
-            width: 250px;
-            height: 250px;
-            min-height: 250px;
-            background-size: 250px;
+            width: 200px;
+            height: 200px;
+            min-height: 200px;
+            background-size: 200px;
         }
 
         .biography {
@@ -116,6 +110,10 @@
             .quotes {
                 width: 70px;
                 margin: 0 80px;
+
+                img {
+                    width: inherit;
+                }
             }
         }
 
@@ -135,12 +133,13 @@
             min-height: 180px;
             background-size: 180px;
         }
+
     }
 }
 
 :host-context(.is-mobile) {
     .about {
-        min-height: 620px;
+        min-height: 650px;
 
         .picture {
             width: 150px;
@@ -153,7 +152,7 @@
             display: block!important;
 
             .quotes {
-                text-align: center;
+                justify-content: center;
                 width: 100%;
                 margin: 0;
 
@@ -167,35 +166,68 @@
                 font-size: 14px;
 
                 span {
-                    font-weight: normal;
-                    color: $color-grey-darker;
+                    // font-weight: normal;
+                    // color: $light-theme-grey-darker;
                 }
             }
         }
 
         .competences-container {
             width: 85%;
+            margin-top: 50px;
 
-            > button {
-                &.btn-how_to_reg {
-                    color: $color-pink !important;
-                }
+            // > button {
+            //     &.btn-how_to_reg {
+            //         color: $color-pink !important;
+            //     }
 
-                &.btn-search {
-                    color: $color-blue !important;
-                }
-                &.btn-group {
-                    color: $color-purple !important;
-                }
-                &.btn-emoji_objects {
-                    color: $color-yellow !important;
-                }
-                &.btn-autorenew {
-                    color: $color-green-lighter !important;
-                }
-                &.btn-forum {
-                    color: $color-orange !important;
-                }
+            //     &.btn-search {
+            //         color: $color-blue !important;
+            //     }
+            //     &.btn-group {
+            //         color: $color-purple !important;
+            //     }
+            //     &.btn-emoji_objects {
+            //         color: $color-yellow !important;
+            //     }
+            //     &.btn-autorenew {
+            //         color: $color-green-lighter !important;
+            //     }
+            //     &.btn-forum {
+            //         color: $color-orange !important;
+            //     }
+            // }
+        }
+    }
+}
+
+:host-context(.light-theme) {
+    .text {
+        color: $light-theme-grey-darker;
+    }
+
+    .competences-container {
+        > button {
+            color: $light-theme-grey-darker !important;
+        }
+    }
+}
+
+:host-context(.dark-theme) {
+    .text {
+        color: $dark-theme-grey-lighter!important;
+    }
+
+    .competences-container {
+        > button {
+            color: $dark-theme-grey-lighter !important;
+        }
+    }
+
+    &.is-mobile {
+        .text {
+            span {
+                color: $dark-theme-grey-lighter!important;
             }
         }
     }

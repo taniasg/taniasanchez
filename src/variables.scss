@@ -1,11 +1,9 @@
-$color-grey: rgba(76, 76, 76);
-$color-pink: rgba(233, 161, 185);
-$color-orange: rgba(241, 120, 47);
-$color-green: rgba(149, 194, 115);
-$color-yellow: rgba(231, 185, 45);
+$light-theme-grey-darker:rgb(66, 64, 64);
+$light-theme-grey-lighter: rgb(76, 76, 76);
 
-$color-blue: rgb(99, 181, 229);
-$color-purple: rgb(157, 1, 235);
+$dark-theme-grey-darker: rgb(81, 80, 80);
+$dark-theme-grey-lighter: rgb(175, 175, 175);
+$dark-theme-background: rgb(32, 32, 32);
 
 $desktop-skill-width: 235px;
 $desktop-skill-height: 443px;
@@ -16,7 +14,14 @@ $tablet-skill-height: 363px;
 $mobile-skill-width: 140px;
 $mobile-skill-height: 264px;
 
+$color-blue: rgb(99, 181, 229);
+$color-purple: rgb(157, 1, 235);
 $color-grey-darker: rgb(66, 64, 64);
 $color-green-lighter: rgb(152, 226, 127);
+$color-grey: rgba(76, 76, 76);
 $color-pink-darker: rgb(250, 31, 111);
+$color-pink: rgba(233, 161, 185);
+$color-orange: rgba(241, 120, 47);
+$color-green: rgba(149, 194, 115);
+$color-yellow: rgba(231, 185, 45);
 
