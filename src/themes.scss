@@ -1,0 +1,48 @@
+@import "./variables.scss";
+
+@mixin theme-button($color) {
+    color: $color;
+}
+
+@mixin menu-button($color) {
+    color: $color;
+    margin: 15px;
+}
+
+@mixin line($color) {
+    position: relative;
+    top: 115px;
+    height: 1px;
+    background-image: linear-gradient(to right, white, $color, white);
+}
+
+.light-theme {
+    .line {
+        @include line($light-theme-grey-darker);
+    }
+
+    .theme-button {
+        @include theme-button($color-yellow);
+    }
+
+    .menu-button {
+        @include menu-button($light-theme-grey-darker);
+    }
+
+    mat-sidenav-content {
+        background: white;
+    }
+}
+.dark-theme {
+    .theme-button {
+        @include theme-button($color-yellow);   
+    }
+
+    .menu-button {
+        @include menu-button($dark-theme-grey-lighter);
+    }
+
+    mat-sidenav-content {
+        background: $dark-theme-background;
+    }
+}

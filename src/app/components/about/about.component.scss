@@ -1,0 +1,234 @@
+@import "~src/variables.scss";
+
+.about {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    flex-direction: column;
+
+    .picture {
+        width: 200px;
+        height: 200px;
+        margin: 40px auto;
+        background-image: url("../../../assets/images/taniasanchez.jpg");
+        background-size: 200px;
+        border-radius: 100%;
+        transition: all 0.3s;
+    }
+
+    .picture:hover {
+        border-radius: 25px !important;
+    }
+
+    .biography {
+        display: flex;
+
+        .quotes {
+            display: flex;
+            align-items: center;
+            width: 60px;
+            margin: 0 20px;
+             
+            img {
+                width: inherit;
+            }
+        }
+
+        .text {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            color: $light-theme-grey-darker;
+
+            span {
+                font-weight: bold;
+                &.swimming {
+                    color: $color-blue;
+                }
+
+                &.music {
+                    color: $color-pink;
+                }
+                &.cooking {
+                    color: $color-green-lighter;
+                }
+            }
+        }
+    }
+
+    .competences-container {
+        margin-top: 40px;
+        width: 500px;
+        display: flex;
+        justify-content: space-evenly;
+
+        button {
+            &.btn-how_to_reg:hover {
+                color: $color-pink !important;
+            }
+        
+            &.btn-search:hover {
+                color: $color-blue !important;
+            }
+            &.btn-group:hover {
+                color: $color-purple !important;
+            }
+            &.btn-emoji_objects:hover {
+                color: $color-yellow !important;
+            }
+            &.btn-autorenew:hover {
+                color: $color-green-lighter !important;
+            }
+            &.btn-forum:hover {
+                color: $color-orange !important;
+            }
+        }
+    }
+}
+
+:host-context(.is-desktop) {
+    .about {
+        min-height: 900px;
+
+        .picture {
+            width: 200px;
+            height: 200px;
+            min-height: 200px;
+            background-size: 200px;
+        }
+
+        .biography {
+            .text {
+                width: 900px;
+                font-size: 20px;
+            }
+
+            .quotes {
+                width: 70px;
+                margin: 0 80px;
+
+                img {
+                    width: inherit;
+                }
+            }
+        }
+
+        .competences-container {
+            width: 650px;
+        }
+    }
+}
+
+:host-context(.is-tablet) {
+    .about {
+        min-height: 700px;
+
+        .picture {
+            width: 180px;
+            height: 180px;
+            min-height: 180px;
+            background-size: 180px;
+        }
+
+    }
+}
+
+:host-context(.is-mobile) {
+    .about {
+        min-height: 650px;
+
+        .picture {
+            width: 150px;
+            height: 150px;
+            background-size: 150px;
+            min-height: 150px;
+        }
+
+        .biography {
+            display: block!important;
+
+            .quotes {
+                justify-content: center;
+                width: 100%;
+                margin: 0;
+
+                img {
+                    width: 30px;
+                }
+            }
+
+            .text {
+                width: 85%;
+                font-size: 14px;
+
+                span {
+                    // font-weight: normal;
+                    // color: $light-theme-grey-darker;
+                }
+            }
+        }
+
+        .competences-container {
+            width: 85%;
+            margin-top: 50px;
+
+            // > button {
+            //     &.btn-how_to_reg {
+            //         color: $color-pink !important;
+            //     }
+
+            //     &.btn-search {
+            //         color: $color-blue !important;
+            //     }
+            //     &.btn-group {
+            //         color: $color-purple !important;
+            //     }
+            //     &.btn-emoji_objects {
+            //         color: $color-yellow !important;
+            //     }
+            //     &.btn-autorenew {
+            //         color: $color-green-lighter !important;
+            //     }
+            //     &.btn-forum {
+            //         color: $color-orange !important;
+            //     }
+            // }
+        }
+    }
+}
+
+:host-context(.light-theme) {
+    .text {
+        color: $light-theme-grey-darker;
+    }
+
+    .competences-container {
+        > button {
+            color: $light-theme-grey-darker !important;
+        }
+    }
+}
+
+:host-context(.dark-theme) {
+    .text {
+        color: $dark-theme-grey-lighter!important;
+    }
+
+    .competences-container {
+        > button {
+            color: $dark-theme-grey-lighter !important;
+        }
+    }
+
+    &.is-mobile {
+        .text {
+            span {
+                color: $dark-theme-grey-lighter!important;
+            }
+        }
+    }
+}

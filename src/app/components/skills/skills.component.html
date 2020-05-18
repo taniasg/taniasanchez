@@ -1,3 +1,32 @@
 <div class="skills">
-    <img src="../../../assets/images/marco.png" class="marco">
+    <div class="skills-container">
+        <div class="skill-wrapper">
+            <div #hand class="hand-display">
+                <img *ngFor="let skill of skills; let i = index;" [src]="skill.img"
+                    [ngClass]="['hand', 'hand-' + (i + 1)]">
+            </div>
+            <div class="skill-display">
+                <div #skill class="skill">
+                    <ng-container *ngFor="let skill of skills; let i = index;">
+                        <div [ngClass]="['skill-' + (i  + 1)]" [style.transition-duration]="'0.6s'">
+                            <div class="title">
+                                {{skill.title | uppercase }}
+                            </div>
+                            <div class="info">
+                                {{skill.description}}
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="nav">
+                    <div class="button pointer" (click)="previousSkill()">
+                        <img src="../../../assets/images/icons/svg/back.svg" alt="" class="icn">
+                    </div>
+                    <div class="button pointer" (click)="nextSkill()">
+                        <img src="../../../assets/images/icons/svg/next.svg" alt="" class="icn">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,52 +1,269 @@
-.is-desktop {
-}
+@import "~src/variables.scss";
 
-.header {
-    margin: 15px 0;
-    > nav {
-        width: 100%;
-        display: flex;
-        height: 80px;
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .mat-sidenav {
+        width: 50%;
 
         .logo {
-            width: 280px;
-            height: inherit;
-            display: flex;
-            justify-content: center;
+            width: 80%;
+            margin: 15px auto;
+
+            img {
+                width: inherit;
+            }
         }
 
-        .navbar {
+        .menu-item {
+            margin: 15px;
+            height: 35px;
             display: flex;
-            justify-content: space-around;
             align-items: center;
-            height: inherit;
-            width: 25%;
+            border: none!important;
 
-            > li {
-                display: inline-block;
+            &.selected {
+                font-weight: bold;
+            }
 
-                > a {
-                    text-decoration: none;
-                    color: black;
+            .icon {
+                margin-right: 15px;
+            }
+        }
+
+        .sidenav-footer {
+            position: absolute;
+            bottom: 10px;
+
+            .copyright {
+                width: inherit;
+                display: flex;
+
+                .logo {
+                    width: 24px;
+                    height: 24px;
+                    background-size: 24px;
+                    margin-left: 15px;
+                    background-repeat: no-repeat;
+                }
+
+                .year {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .mat-sidenav-content {
+        .header {
+            position: absolute;
+            width: 100%;
+            top: 17px;
+            font-family: QuicksandLight;
+            font-size: 14px;
+            z-index: 999;
+
+            > nav {
+                width: 100%;
+                display: flex;
+                height: 80px;
+                min-height: 80px;
+
+                .logo {
+                    width: 200px;
+                    height: inherit;
+                    display: flex;
+                    justify-content: center;
+
+                    > img {
+                        // width: 200px;
+                        height: 75px;
+                    }
+                }
+
+                .navbar {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    height: inherit;
+                    width: 35%;
+                    margin-right: 35px;
+
+                    > li {
+                        display: inline-block;
+
+                        .option {
+                            text-decoration: none;
+                            // color: #afafaf;
+                            &.selected {
+                                // color: #4c4c4c;
+                                font-family: QuicksandSemiBold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer {
+            > img {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+// SCREEN SIZE
+.is-mobile {
+    .mat-sidenav {
+    }
+
+    .mat-sidenav-content {
+        .header {
+            top: 0;
+            height: 50px;
+
+            > nav {
+                width: 100%;
+                display: flex;
+                height: inherit;
+                min-height: 80px;
+
+                .navbar {
+                    width: 95%;
+                    margin: 0;
+                    height: inherit;
+                    justify-content: space-between;
                 }
             }
         }
     }
 }
 
-.line {
-    border: 1px solid black;
+// THEMES
+.dark-theme {
+    .mat-sidenav-container {
+        .mat-sidenav-content {
+            .header {
+                > nav {
+                    .navbar {
+                        > li {
+                            .option {
+                                color: $dark-theme-grey-darker !important;
+                                &.selected {
+                                    color: $dark-theme-grey-lighter !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .mat-sidenav {
+            background: $dark-theme-background;
+
+            .menu-item {
+                color: $dark-theme-grey-darker;
+
+                .icon {
+                    color: $dark-theme-grey-darker !important;
+                }
+
+                &.selected {
+                    font-weight: bold;
+                    color: $dark-theme-grey-lighter;
+                    // border-bottom: 2px solid $dark-theme-grey-lighter;
+
+                    .icon {
+                        color: $dark-theme-grey-lighter !important;
+                    }
+                }
+            }
+
+            .sidenav-footer {
+    
+                .copyright {
+                    .logo {
+                        background-image: url("../assets/images/logos/taniasanchez-dark-theme-min.png");
+                    }
+    
+                    .year {
+                        font-size: 10px;
+                        color: $dark-theme-grey-lighter;
+                    }
+                }
+            }
+        }
+    }
 }
 
-.content {
-    width: 100%;
-    height: 616px;
-}
+.light-theme {
+    .mat-sidenav-container {
+        .mat-sidenav-content {
+            .header {
+                > nav {
+                    .navbar {
+                        > li {
+                            .option {
+                                color: $dark-theme-grey-lighter;
+                                &.selected {
+                                    color: $light-theme-grey-darker;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-.footer {
-    > img {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+    .mat-sidenav {
+        .menu-item {
+            color: $dark-theme-grey-lighter;
+
+            .icon {
+                color: $dark-theme-grey-lighter !important;
+            }
+
+            &.selected {
+                font-weight: bold;
+                color: $light-theme-grey-darker;
+                // border-bottom: 2px solid $light-theme-grey-darker;
+
+                .icon {
+                    color: $light-theme-grey-darker !important;
+                }
+            }
+        }
+
+        .sidenav-footer {
+    
+            .copyright {
+                .logo {
+                    background-image: url("../assets/images/logos/taniasanchez-light-theme-min.png");
+                }
+
+                .year {
+                    font-size: 10px;
+                    color: $light-theme-grey-darker;
+                }
+            }
+        }
     }
 }

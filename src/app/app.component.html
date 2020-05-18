@@ -1,31 +1,72 @@
-<div class="header">
-  <nav>
-    <div class="logo">
-      <img src="../assets/images/logos/taniasanchez.png" routerLink="/" style="width: 200px; height: inherit;">
-    </div>
+<div [ngClass]="[screenSize, uitheme]">
 
-    <div class="spacer"></div>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="over">
+      <div class="logo">
+        <img [src]="'../assets/images/logos/taniasanchez-' + uitheme + '-min.png'" routerLink="/"  routerLinkActive="active" class="pointer">
+      </div>
+      <ng-container *ngFor="let option of menu">
+        <div class="menu-item pointer" [routerLink]="option.route" (click)="sidenav.toggle()" routerLinkActive="active"
+          [class.selected]="activeRoute == option.route">
+          <mat-icon class="icon">{{option.icon}}</mat-icon>
+          <div class="name">{{ option.name | titlecase }}</div>
+        </div>
+      </ng-container>
+      <!-- <div class="sidenav-footer">
+        <div class="copyright">
+          <div class="logo"></div>
+          <div class="year">© 2020 </div>
+        </div>
+      </div> -->
+    </mat-sidenav>
 
-    <div class="navbar">
-      <li>
-        <a routerLink="/">INICIO</a>
-      </li>
-      <li>
-        <a routerLink="/about">SOBRE MÍ</a>
-      </li>
-      <li>
-        <a routerLink="/skills">HABILIDADES</a>
-      </li>
-    </div>
-  </nav>
-</div>
+    <mat-sidenav-content>
+      <header class="header">
+        <nav>
+          <div class="logo" *ngIf="screenSize != 'is-mobile'">
+            <img [src]="'../assets/images/logos/taniasanchez-' + uitheme + '.png'" routerLink="/" class="pointer">
+          </div>
 
-<div class="line"></div>
+          <div class="spacer" *ngIf="screenSize != 'is-mobile'"></div>
+          <div class="navbar">
+            <ng-container *ngIf="screenSize != 'is-mobile'; else mobileNav">
+              <ng-container *ngFor="let option of menu">
+                <li (click)="onNavigate(option.route)">
+                  <a class="option" [class.selected]="activeRoute == option.route" [routerLink]="option.route"
+                    [title]="option.name">
+                    {{option.name | uppercase }}
+                  </a>
+                </li>
+              </ng-container>
+            </ng-container>
+            <ng-template #mobileNav>
+              <mat-icon [style.font-size]="'40px'" class="menu-button pointer" (click)="sidenav.toggle()">menu
+              </mat-icon>
+              <!-- <button mat-icon-button title="Menú">
+                
+              </button> -->
 
-<div class="content">
-  <router-outlet></router-outlet>
-</div>
+            </ng-template>
 
-<div class="footer">
-  <img src="../assets/images/footers/footerblack.jpg">
+
+            <button mat-icon-button title="Tema" class="theme-button" (click)="setTheme()" [ngStyle]="{'margin-top': screenSize == 'is-mobile' ? '15px' : '0px'}">
+              <mat-icon *ngIf="uitheme == 'light-theme'">nights_stays</mat-icon>
+              <mat-icon *ngIf="uitheme == 'dark-theme'">wb_sunny</mat-icon>
+            </button>
+
+          </div>
+        </nav>
+      </header>
+
+      <div class="line" *ngIf="screenSize != 'is-mobile' && uitheme !='dark-theme'"></div>
+
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+
+      <div class="footer" *ngIf="screenSize != 'is-mobile'">
+        <!-- <img [src]="'../assets/images/footers/footer-' + uitheme + '.png'"> -->
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

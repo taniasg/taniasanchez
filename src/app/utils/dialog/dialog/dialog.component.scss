@@ -1,0 +1,43 @@
+@import "~src/variables.scss";
+
+.mat-dialog-container {
+    background: $dark-theme-background !important;
+}
+
+.mat-dialog-title {
+    font-family: ChauPhilomeneOne;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: $dark-theme-grey-lighter;
+    text-align: center;
+
+    .mat-icon-button.close {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        right: 0px;
+    }
+}
+
+.mat-dialog-content {
+    text-align: center;
+    color: $dark-theme-grey-lighter;
+    font-size: 15px;
+
+    .mat-icon {
+        width: 100%;
+        height: auto;
+        font-size: 100px;
+        color: $dark-theme-grey-lighter;
+    }
+}
+
+.mat-dialog-actions {
+    button {
+        margin: 0 auto;
+        font-family: QuicksandSemiBold;
+        color: $dark-theme-grey-lighter;
+    }
+}
