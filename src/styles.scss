@@ -59,3 +59,8 @@ body {
 .mat-dialog-container {
     background: $light-theme-grey-lighter !important;
 }
+
+*,
+button:focus {
+  outline: none;
+}

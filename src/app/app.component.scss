@@ -12,7 +12,7 @@
 
         .logo {
             width: 80%;
-            margin: auto;
+            margin: 15px auto;
 
             img {
                 width: inherit;
@@ -24,13 +24,36 @@
             height: 35px;
             display: flex;
             align-items: center;
+            border: none!important;
 
             &.selected {
                 font-weight: bold;
             }
 
             .icon {
-                margin-right: 15px;;
+                margin-right: 15px;
+            }
+        }
+
+        .sidenav-footer {
+            position: absolute;
+            bottom: 10px;
+
+            .copyright {
+                width: inherit;
+                display: flex;
+
+                .logo {
+                    width: 24px;
+                    height: 24px;
+                    background-size: 24px;
+                    margin-left: 15px;
+                    background-repeat: no-repeat;
+                }
+
+                .year {
+                    font-size: 10px;
+                }
             }
         }
     }
@@ -159,16 +182,30 @@
                 color: $dark-theme-grey-darker;
 
                 .icon {
-                    color: $dark-theme-grey-darker!important;
+                    color: $dark-theme-grey-darker !important;
                 }
-    
+
                 &.selected {
                     font-weight: bold;
                     color: $dark-theme-grey-lighter;
                     // border-bottom: 2px solid $dark-theme-grey-lighter;
 
                     .icon {
-                        color: $dark-theme-grey-lighter!important;
+                        color: $dark-theme-grey-lighter !important;
+                    }
+                }
+            }
+
+            .sidenav-footer {
+    
+                .copyright {
+                    .logo {
+                        background-image: url("../assets/images/logos/taniasanchez-dark-theme-min.png");
+                    }
+    
+                    .year {
+                        font-size: 10px;
+                        color: $dark-theme-grey-lighter;
                     }
                 }
             }
@@ -201,7 +238,7 @@
             color: $dark-theme-grey-lighter;
 
             .icon {
-                color: $dark-theme-grey-lighter!important;
+                color: $dark-theme-grey-lighter !important;
             }
 
             &.selected {
@@ -210,7 +247,21 @@
                 // border-bottom: 2px solid $light-theme-grey-darker;
 
                 .icon {
-                    color: $light-theme-grey-darker!important;
+                    color: $light-theme-grey-darker !important;
+                }
+            }
+        }
+
+        .sidenav-footer {
+    
+            .copyright {
+                .logo {
+                    background-image: url("../assets/images/logos/taniasanchez-light-theme-min.png");
+                }
+
+                .year {
+                    font-size: 10px;
+                    color: $light-theme-grey-darker;
                 }
             }
         }
