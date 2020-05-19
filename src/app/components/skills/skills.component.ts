@@ -9,7 +9,7 @@ import { LayoutService } from 'src/app/services/layout/layout.service';
 export class SkillsComponent implements OnInit {
   skills = [
     { title: "Angular", description: "En los últimos años he desarrollado aplicaciones robustas, escalables y optimizadas para distintos proyectos utilizando Typescript, Angular Material, Chart.js, entre otros.", img: "../../../assets/images/hands/hand1_ring-min.png" },
-    { title: "Javascript", description: "Soy capaz de construir aplicaciones de principio a fin empleando frameworks, librerías y herramientas trabajando en front-end y back-end.", img: "../../../assets/images/hands/hand2_ring-min-min.png" },
+    { title: "Javascript", description: "Soy capaz de construir aplicaciones de principio a fin empleando frameworks, librerías y herramientas trabajando en front-end y back-end.", img: "../../../assets/images/hands/hand2_ring-min.png" },
     { title: "Node.js", description: "He trabajado con Node.js creando APIs REST. Algunas librerías que he utilizado incluyen npm, Express, Socket.io y MongoDB.", img: "../../../assets/images/hands/hand3_ring-min.png" },
     { title: "HTML/CSS", description: "Recientemente he trabajado en desarrollo web responsivo creando módulos CSS predominantemente en SASS. Mi objetivo es el rendimiento, simplicidad e integridad.", img: "../../../assets/images/hands/hand4_ring-min.png" },
     { title: "AWS", description: "Tengo conocimientos básicos acerca del manejo de herramientas y servicios de la nube de Amazon tales como Cognito, CloudWatch, DynamoDB, S3 y Lambda.", img: "../../../assets/images/hands/hand5_ring-min.png" }
