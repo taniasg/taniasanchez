@@ -103,7 +103,7 @@
 // THEMES
 :host-context(.light-theme) {
     .img-helloworld {
-        background-image: url("../../../assets/images/holamundo-light-theme-min.png");
+        background-image: url("../../../assets/images/holamundo-light-theme-sm-min.png");
     }
 
     .info {
@@ -113,7 +113,7 @@
 
 :host-context(.dark-theme) {
     .img-helloworld {
-        background-image: url("../../../assets/images/holamundo-dark-theme-min.png");
+        background-image: url("../../../assets/images/holamundo-dark-theme-sm-min.png");
     }
 
     .info {
