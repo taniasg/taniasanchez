@@ -19,8 +19,8 @@ export class SkillsComponent implements OnInit {
 
   screenSize: string = "";
 
-  @ViewChild("hand", { static: false }) hand;
-  @ViewChild("skill", { static: false }) skill;
+  @ViewChild("hand") hand;
+  @ViewChild("skill") skill;
 
   constructor(private layoutService: LayoutService) {
     this.layoutService.onLayoutChanges().subscribe(response => {
