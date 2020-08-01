@@ -29,7 +29,8 @@
 
           <div class="spacer" *ngIf="screenSize != 'is-mobile'"></div>
           <div class="navbar">
-            <ng-container *ngIf="screenSize != 'is-mobile'; else mobileNav">
+            <!--<ng-container *ngIf="screenSize != 'is-mobile'; else mobileNav">-->
+            <ng-container>
               <ng-container *ngFor="let option of menu">
                 <li (click)="onNavigate(option.route)">
                   <a class="option" [class.selected]="activeRoute == option.route" [routerLink]="option.route"
@@ -49,7 +50,7 @@
             </ng-template>
 
 
-            <button mat-icon-button title="Tema" class="theme-button" (click)="setTheme()" [ngStyle]="{'margin-top': screenSize == 'is-mobile' ? '15px' : '0px'}">
+            <button mat-icon-button title="Tema" class="theme-button" (click)="setTheme()">
               <mat-icon *ngIf="uitheme == 'light-theme'">nights_stays</mat-icon>
               <mat-icon *ngIf="uitheme == 'dark-theme'">wb_sunny</mat-icon>
             </button>
