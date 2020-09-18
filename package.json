@@ -24,9 +24,11 @@
     "elliptic": "^6.5.3",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.19",
+    "node-forge": "^0.10.0",
     "rxjs": "~6.5.5",
     "serialize-javascript": "^4.0.0",
     "tslib": "^1.10.0",
+    "yargs-parser": "^20.0.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
