@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/utils/dialog/dialog/dialog.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-about',
@@ -17,9 +18,12 @@ export class AboutComponent implements OnInit {
     // { icon: "forum", title: "Buena comunicación", description: "Uso mis destrezas lógicas y analíticas para responder a problemas complejos y difíciles. Soy sistemática, metódica y disciplinada. En la aproximación al trabajo, tiendo a seguir muy de cerca las políticas, pautas y reglas." },
   ];
 
+  age: number;
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.calcAge();
   }
 
   openCompetenceDialog(competence: any) {
@@ -31,6 +35,11 @@ export class AboutComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
 
+  }
+
+  calcAge(): void {
+    const today = moment().format('YYYY-MM-DD');
+    this.age = moment(today).diff(moment('1995-01-16', 'YYYY-MM-DD'), 'years');
   }
 
 }
