@@ -24,7 +24,7 @@
     "@angular/router": "~9.1.9",
     "elliptic": "^6.5.3",
     "hammerjs": "^2.0.8",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "node-forge": "^0.10.0",
     "rxjs": "~6.5.5",
