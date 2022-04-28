@@ -18,28 +18,25 @@ import { DialogComponent } from './utils/dialog/dialog/dialog.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AboutComponent,
-    SkillsComponent,
-    HomeComponent,
-    DialogComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatDialogModule,
-    MatSidenavModule
-  ],
-  entryComponents: [
-    DialogComponent
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AboutComponent,
+        SkillsComponent,
+        HomeComponent,
+        DialogComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatTooltipModule,
+        MatDialogModule,
+        MatSidenavModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
